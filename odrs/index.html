@@ -20,7 +20,7 @@
 
 		<dl>
 		  <dt>Latest Version</dt>
-		  <dd><a href="http://schema.theodi.org/open-data-licensing#">http://schema.theodi.org/open-data-licensing#</a></dd>
+		  <dd><a href="http://schema.theodi.org/odrs#">http://schema.theodi.org/odrs#</a></dd>
 		  
 		  	<dt>Created</dt>
 		  	<dd>2013-05-31</dd>
@@ -32,21 +32,24 @@
 		
 		<h1>Abstract</h1>
 		
-			Provides an ontology for describing rights statements, e.g. licenses, copyright notices, attribution requirements, for Open Datasets.
+			Provides an vocabulary for describing rights statements, e.g. licenses, copyright notices, attribution requirements, for Open Datasets.
 		
 		
 		<h1>Introduction</h1>
 
-<p>Data published to the web should be accompanied by metadata that describes the dataset, its means of creation and, importantly, the rights available to potential re-users of that data. While legal requirements vary across juristictions, a statement of rights typically includes some or all of the following information:</p>
+<p>Data published to the web should always be accompanied by machine-readable metadata that describes the dataset, its means of creation and, importantly, a statement of the rights that relate to potential re-use of the data. </p>
+
+<p>While legal requirements vary across juristictions, a statement of rights will typically include some or all of the following information:</p>
 
 <ul>
 <li>A reference to a license or waiver that relates to re-use of the dataset</li>
 <li>A reference to a license or waiver that relates to re-use of the contents of the dataset, e.g where that content is covered by copyright</li>
 <li>Notices, e.g. copyright notices, that should be preserved by re-users</li>
 <li>Guidance on a means of attributing the source of the data, e.g. when re-used in an application</li>
+<li>Pointers to further information, e.g. further guidance on re-use or details on how to acquire additional rights</li>
 </ul>
 
-<p>The Open Data Rights Statement vocabulary is intended to support the publication of machine-readable rights statements. It builds on related work from the Dublin Core and Creative Commons communities. The vocabulary is intended to be used in a variety of contexts and complements ongoing efforts to improve the quality of machine-readable dataset metadata, e.g. as Linked Data (DCAT, VOID), as data distributions (Data Packages), or data published via Web APIs.</p>
+<p>The Open Data Rights Statement vocabulary is intended to support the publication of machine-readable rights statements. The vocabulary builds on related work from the Dublin Core and Creative Commons communities and is intended to complement ongoing efforts to improve the quality of machine-readable dataset metadata. It is expected that the vocabulary will be useful in a number of contexts, e.g. for Linked Data publishing (<a href="http://www.w3.org/TR/vocab-dcat/">DCAT</a>, <a href="http://www.w3.org/TR/void/">VoiD</a>), dataset distribution (<a href="http://www.dataprotocols.org/en/latest/data-packages.html">Data Packages</a>), as well as data published via web APIs.</p>
 
 <p>The following sections of the document provide more background on the vocabulary, including references to relevant related work.</p>
 
@@ -68,7 +71,7 @@
 
 <ul>
 <li>There is no recognition of the need to separately license a database and its contents. Even outside of the EU, it is entirely possible that the content of a database is covered by a separate license to its structure. Where required there should be unambiguous ways to link to more than one license or waiver</li>
-<li>An unclear distinction between descriptions of a re-usable license; a rights statement which might be apply to several datasets, and the specific rights associated with an individual dataset. This leads to some confusion around how best to publish attribution requirements, copyright notices, etc.</li>
+<li>An unclear distinction between descriptions of a re-usable license; a rights statement which might apply to several datasets, and the specific rights associated with an individual dataset. This leads to some confusion around how best to publish attribution requirements, copyright notices, etc.</li>
 </ul>
 
 <p>The intention is that this vocabulary should allow data publisher to publish, as machine-readable metadata, the following information:</p>
@@ -108,7 +111,7 @@
 			</p>
 			<p><strong>Properties</strong>:
 			 
-			 | <a href="#prop_attributionName">attributionName</a>
+			 | <a href="#prop_attributionText">attributionText</a>
 			 
 			 | <a href="#prop_attributionURL">attributionURL</a>
 			 
@@ -119,6 +122,8 @@
 			 | <a href="#prop_dataLicense">dataLicense</a>
 			 
 			 | <a href="#prop_rights">rights</a>
+			 
+			 | <a href="#prop_reuserGuidelines">reuserGuidelines</a>
 			 
 			</p>				
 		</div>
@@ -140,7 +145,7 @@
 	   					<div class="span10">
 		   				<table class="table">
 		   				<tr><td>Label</td><td>License </ts></tr>
-		   				<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#License</code></ts></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#License</code></ts></tr>
 		   				<tr><td>Status</td><td> </ts></tr>
 		   				
 		   					   				
@@ -170,7 +175,7 @@
 	   					<div class="span10">
 		   				<table class="table">
 		   				<tr><td>Label</td><td>Rights Statement </ts></tr>
-		   				<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#RightsStatement</code></ts></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#RightsStatement</code></ts></tr>
 		   				<tr><td>Status</td><td> </ts></tr>
 		   				
 		   					   				
@@ -208,7 +213,7 @@
 			   				
 			   				<table class="table">
 			   					<tr><td>Label</td><td>content license </ts></tr>
-			   					<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#contentLicense</code></ts></tr>	   					
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#contentLicense</code></ts></tr>	   					
 				   				<tr><td>Status</td><td> </ts></tr>
 				   				
 				   						   				
@@ -261,7 +266,7 @@
 			   				
 			   				<table class="table">
 			   					<tr><td>Label</td><td>data license </ts></tr>
-			   					<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#dataLicense</code></ts></tr>	   					
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#dataLicense</code></ts></tr>	   					
 				   				<tr><td>Status</td><td> </ts></tr>
 				   				
 				   						   				
@@ -314,7 +319,7 @@
 			   				
 			   				<table class="table">
 			   					<tr><td>Label</td><td>rights </ts></tr>
-			   					<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#rights</code></ts></tr>	   					
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#rights</code></ts></tr>	   					
 				   				<tr><td>Status</td><td> </ts></tr>
 				   				
 				   						   				
@@ -346,14 +351,47 @@
 					</div>	   					
 	   			</div>
 	   			<hr>
+	  		
+	   			<div class="term" id="prop_reuserGuidelines">
+	   				<h4>Property: reuserGuidelines</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td>rights </ts></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#reuserGuidelines</code></ts></tr>	   					
+				   				<tr><td>Status</td><td> </ts></tr>
+				   				
+				   						   				
+				   				
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p> </p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
 	  				
 		
 					
 			<h3>Datatype Properties</h3>
 	
 	   		
-	   			<div class="term" id="prop_attributionName">
-	   				<h4>Property: attributionName</h4>
+	   			<div class="term" id="prop_attributionText">
+	   				<h4>Property: attributionText</h4>
 	   				<div class="row">
 	   					<div class="span2">
 	   					<h5>Overview</h5>
@@ -361,8 +399,8 @@
 	   					<div class="span10">
 		   				
 		   				<table class="table">
-							<tr><td>Label</td><td>attribution name </ts></tr>
-		   					<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#attributionName</code></ts></tr>							   				
+							<tr><td>Label</td><td>attribution text </ts></tr>
+		   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#attributionText</code></ts></tr>							   				
 			   				<tr><td>Status</td><td> </ts></tr>
 			   				
 			   						   				
@@ -395,7 +433,7 @@
 						<div class="offset2 span10">
 				   				
 			   				
-			   				<p>The name of the rights holder, to be used when attributing the publisher of a dataset </p>
+			   				<p>The text to use in an attribution link. This may be the name of the publisher or a reference to a community or group of contributors </p>
 			   				
 	   					</div>
 	   			</div>
@@ -416,7 +454,7 @@
 		   				
 		   				<table class="table">
 							<tr><td>Label</td><td>attribution url </ts></tr>
-		   					<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#attributionURL</code></ts></tr>							   				
+		   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#attributionURL</code></ts></tr>							   				
 			   				<tr><td>Status</td><td> </ts></tr>
 			   				
 			   						   				
@@ -470,7 +508,7 @@
 		   				
 		   				<table class="table">
 							<tr><td>Label</td><td>copyright notice </ts></tr>
-		   					<tr><td>URI</td><td><code>http://schema.theodi.org/open-data-licensing#copyrightNotice</code></ts></tr>							   				
+		   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#copyrightNotice</code></ts></tr>							   				
 			   				<tr><td>Status</td><td> </ts></tr>
 			   				
 			   						   				
