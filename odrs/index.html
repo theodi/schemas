@@ -23,7 +23,7 @@
                     
                     		  	
                         <dt>Last Modified</dt>
-                        <dd property="dct:modified">2013-06-17</dd>
+                        <dd property="dct:modified">2013-07-29</dd>
                     
                     		  		  
                     <dt>Authors</dt>
@@ -61,6 +61,15 @@
 
 <p>The following sections of the document provide more background on the vocabulary, including references to relevant related work.</p>
 
+<h2>User Guides</h2>
+
+<p>There are two user guides which support the use of this vocabulary:</p>
+
+<ul>
+<li><a href="https://github.com/theodi/open-data-licensing/blob/master/guides/publisher-guide.md">Publishers Guide</a> -- a guide for data publishers that provides more detail on the design of the vocabulary and how it can be applied in a number of data publishing scenarios</li>
+<li><a href="https://github.com/theodi/open-data-licensing/blob/master/guides/reusers-guide.md">Re-Users Guide</a> -- a guide for data re-users on how to process machine-readable metadata that is based on this vocabulary</li>
+</ul>
+
 <h2>Related Work</h2>
 
 <p>There are several existing vocabularies cover similar goals, but all have their limitations. The Open Data Rights Statement vocabulary builds on this earlier work to support clearer publication of rights information.</p>
@@ -69,9 +78,11 @@
 <li><a href="http://dublincore.org/documents/dcmi-terms/">Dublin Core</a> distinguishes between a licence (<code>dct:License</code>) and a rights statement (<code>dct:RightsStatement</code>) and provides terms for relating a work to a machine-readable descriptions of these documents using the <code>dct:rights</code> and <code>dct:license</code> properties.</li>
 <li>The <a href="http://creativecommons.org/ns">Creative Commons vocabulary</a> (ccRel) supports the publication of machine-readable descriptions of broad classes of requirements, permissions and prohibitions that are associated with licences. It also includes some terms to support attribution.</li>
 <li>The <a href="http://vocab.org/waiver/terms/.html">Waiver</a> vocabulary supports the association of public domain waivers and community norms with a dataset</li>
+<li>The <a href="http://www.w3.org/community/odrl/">Open Data Rights Language</a> (ODRL) provides a standard means for expressing policies relating to the publishing, distribution and consumption of digital media.</li>
+<li>Similarly, the <a href="http://ns.inria.fr/l4lod/v2/l4lod_v2.html">L4LOD</a> and <a href="http://data.opendataday.it/LiMo/">LIMO</a> vocabularies also attempt to describe the essential aspects of individual licenses</li>
 </ul>
 
-<p>These vocabularies provide some necessary foundations for publishing rights statements, but each has its own limitations</p>
+<p>These vocabularies provide some of the necessary foundations for publishing rights statements, but each has its own limitations. As described in the next section, the ODRS vocabulary is intended to support the publication of &quot;rights statements&quot; that annotate the relationship between a dataset and its license information.</p>
 
 <h2>Design Rationale</h2>
 
@@ -100,13 +111,25 @@
 
 <p>The vocabulary does not provide a definition of dataset. This is intentionally under-specified to support the use of the vocabulary in a number of ways. The existing <a href="http://dublincore.org/documents/dcmi-terms/">Dublin Core</a> terms (<code>dct:rights</code> and <code>dct:license</code>) can be used to relate a dataset to a <code>odrs:RightsStatement</code> or a licence.</p>
 
-<p>Similarly, this vocabulary intentionally does not attempt to support the machine-readable description of the terms of a specific license. This is already adequately covered by the <a href="http://creativecommons.org/ns">ccRel</a> vocabulary.</p>
+<p>Similarly, this vocabulary intentionally does not attempt to support the machine-readable description of the terms of a specific license. This is already adequately covered by the <a href="http://creativecommons.org/ns">ccRel</a> and <a href="http://www.w3.org/community/odrl/">ODRL</a> vocabularies. </p>
+
+<p>The ODRS vocabulary is aimed at supporting a simple, common case of publishing open data using standard licenses. However it is compatible with efforts to create machine-readable expressions of licenses and policies. Additional notes on the <a href="https://github.com/theodi/open-data-licensing/wiki/Use-cases">use cases that have guided the design of the vocabulary</a> can be found in the project wiki.</p>
 
 <h2>Schema Diagram</h2>
 
 <p>The following diagram shows the key resources, relationships and properties defined by this vocabulary.</p>
 
 <p><img src="diagram.png" alt="Schema diagram"></p>
+
+<h2>Recent Changes</h2>
+
+<p>For a full history of changes view <a href="https://github.com/theodi/open-data-licensing/tree/master/schema">the source files in github</a>.</p>
+
+<p>The following lists highlights some of the key recent changes:</p>
+
+<ul>
+<li>29/07/2013 -- Added links to L4LOD, LIMO and ODRL vocabularies in the Related Work section and links to Use Cases.</li>
+</ul>
 
 		
 		
@@ -315,7 +338,7 @@ homepage, but may also be a dedicated attribution page. This is useful when prov
 					<div class="row">
 						<div class="offset2 span10">
 		   				
-			   				<p property="rdfs:comment">Indicates which content licence is applicable to the dataset(s) referencing a rights statement</p>
+			   				<p property="rdfs:comment">The contents of a database might be covered by a separate license, e.g. a database containing copyrightable material (e.g. text, images) might have different rights for the dataset and the contents. This property can be used to refer to a license that applies to the content of the dataset. In some cases the same license can be applied to both content and data, but in others a data publisher may choose to use a separate license for content. The value of the property will be the URI of the license that is being applied to the content.</p>
 			   				
 	   				</div>
 	   			</div>
@@ -422,7 +445,61 @@ homepage, but may also be a dedicated attribution page. This is useful when prov
 					<div class="row">
 						<div class="offset2 span10">
 		   				
-			   				<p property="rdfs:comment">Indicates which data licence is applicable to the dataset(s) referencing a rights statement.</p>
+			   				<p property="rdfs:comment">This property is used to indicate which license covers reuse of the dataset(s) associated with this rights statement object. Typically this license will refer to a standard open license, e.g. as published by Creative Commons or Open Data Commons. The value of the property will be the URI of the license that is being applied to the data</p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  		
+	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/odrs#reuserGuidelines" class="term" id="prop_reuserGuidelines">
+	   				<h4>Property: reuserGuidelines</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td><span property="rdfs:label">guidelines for re-users</span></td></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#reuserGuidelines</code></td></tr>	   					
+				   				
+				   						   				
+				   				
+				   					<tr><td>Range</td>
+				   					<td>
+				   					
+				   						   
+				   						       <a href="http://xmlns.com/foaf/0.1/Document"><span property="rdfs:range" resource="http://xmlns.com/foaf/0.1/Document">http://xmlns.com/foaf/0.1/Document</span></a>
+				   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   				
+				   				
+				   					<tr><td>Domain</td>
+				   					<td>
+				   					
+                                           
+                                               <a href="#class_RightsStatement">
+                                               <span property="rdfs:domain" resource="http://schema.theodi.org/odrs#RightsStatement">RightsStatement</a>
+                                           		   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p property="rdfs:comment">Link to a document that provides guidelines for re-users of data that is covered by a specific rights statement. The guidelines 
+may include more detail on attribution guidelines, a fuller copyright statement, and general guidance on how the data might be re-used</p>
 			   				
 	   				</div>
 	   			</div>
@@ -466,60 +543,6 @@ homepage, but may also be a dedicated attribution page. This is useful when prov
 						<div class="offset2 span10">
 		   				
 			   				<p property="rdfs:comment">Associates a rights statement with a dataset. This property is equivalent to the Dublin Core rights property</p>
-			   				
-	   				</div>
-	   			</div>
-	   			<div class="row">
-	   				<div class="offset10">
-	   					<a href="#overview">Back to Overview</a>
-					</div>	   					
-	   			</div>
-	   			<hr>
-	  		
-	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/odrs#reuserGuidelines" class="term" id="prop_reuserGuidelines">
-	   				<h4>Property: reuserGuidelines</h4>
-	   				<div class="row">
-	   					<div class="span2">
-	   					<h5>Overview</h5>
-	   					</div>
-	   					<div class="span10">
-			   				
-			   				<table class="table">
-			   					<tr><td>Label</td><td><span property="rdfs:label">rights</span></td></tr>
-			   					<tr><td>URI</td><td><code>http://schema.theodi.org/odrs#reuserGuidelines</code></td></tr>	   					
-				   				
-				   						   				
-				   				
-				   					<tr><td>Range</td>
-				   					<td>
-				   					
-				   						   
-				   						       <a href="http://xmlns.com/foaf/0.1/Document"><span property="rdfs:range" resource="http://xmlns.com/foaf/0.1/Document">http://xmlns.com/foaf/0.1/Document</span></a>
-				   						   
-				   							   				
-				   					</td>
-				   					</tr>
-				   				
-				   				
-				   					<tr><td>Domain</td>
-				   					<td>
-				   					
-                                           
-                                               <a href="#class_RightsStatement">
-                                               <span property="rdfs:domain" resource="http://schema.theodi.org/odrs#RightsStatement">RightsStatement</a>
-                                           		   						   
-				   							   				
-				   					</td>
-				   					</tr>
-				   						   				
-			   				</table>	   				
-		   				</div>		   				
-					</div>		   	
-					<div class="row">
-						<div class="offset2 span10">
-		   				
-			   				<p property="rdfs:comment">Link to a document that provides guidelines for re-users of data that is covered by a specific rights statement. The guidelines 
-may include more detail on attribution guidelines, a fuller copyright statement, and general guidance on how the data might be re-used</p>
 			   				
 	   				</div>
 	   			</div>
