@@ -1,0 +1,636 @@
+<html prefix="foaf: http://xmlns.com/foaf/0.1/
+              owl: http://www.w3.org/2002/07/owl#
+              rdfs: http://www.w3.org/2000/01/rdf-schema#
+              dct: http://purl.org/dc/terms/
+              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+              xmlns: http://schema.theodi.org/odrs#">
+    <head>
+        <title>Open Data Certificate Vocabulary</title>
+        <link href="bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body typeof="owl:Ontology" about="http://schema.theodi.org/certificate">    
+        <div class="container">
+            <div class="ontology">
+                <h1 property="dct:title">Open Data Certificate Vocabulary</h1>
+                <dl>
+                    <dt>Latest Version</dt>
+                    <dd><a href="http://schema.theodi.org/certificate">http://schema.theodi.org/certificate</a></dd>
+                    
+                    
+                        <dt>Created</dt>
+                        <dd property="dct:created">2013-08-05</dd>
+                    
+                    
+                    		  	
+                        <dt>Last Modified</dt>
+                        <dd property="dct:modified">2013-08-05</dd>
+                    
+                    		  		  
+                    <dt>Authors</dt>
+                    
+                        <dd property="foaf:maker" resource="http://www.ldodds.com#me">
+                            <a href="http://www.ldodds.com#me"><span property="foaf:name" typeof="foaf:Person" about="http://www.ldodds.com#me">Leigh Dodds</span></a>
+                        </dd>
+                    
+                        
+                    <dt>Alternate Versions</dt>
+                    <dd><a href="index.ttl">Turtle</a></dd>
+                    
+		         </dl>
+		         
+                <span property="rdfs:comment">A vocabulary for publishing machine-readable metadata about Open Data Certificates</span>
+		         
+            </div>
+				
+		
+		  <p>This vocabulary is intended to support the publication of machine-readable descriptions of <a href="https://certificates.theodi.org/">open data certificates</a>.</p>
+
+<p>The first version of vocabulary is intentionally small and is intended to support:</p>
+
+<ul>
+<li>associating a dataset with its certificate, via the <code>cert:certificate</code> property</li>
+<li>extracting the answers provided during the certification process, e.g. to support analysis across datasets</li>
+<li>creating new displays of certificate metadata</li>
+</ul>
+
+<p>The vocabulary does not yet support the creation of machine-readable versions of the questionnaire&#39;s that are completed during the certification process. This could potentially be added during a later revision.</p>
+
+		
+		
+		<div id="overview">
+            <h2>Overview Of Terms</h2>		
+			<p>An alphabetical index of the ontology terms, divided into classes and properties. All the terms are hyperlinked to their 
+			detailed description for quick reference.</p>
+			
+			<p><strong>Classes</strong>:
+            
+			 | <a href="#class_Answer">Answer</a>
+			
+			 | <a href="#class_Certificate">Certificate</a>
+			
+			 | <a href="#class_ExpertCertificate">ExpertCertificate</a>
+			
+			 | <a href="#class_PilotCertificate">PilotCertificate</a>
+			
+			 | <a href="#class_Question">Question</a>
+			
+			 | <a href="#class_RawCertificate">RawCertificate</a>
+			
+			 | <a href="#class_StandardCertificate">StandardCertificate</a>
+					
+			</p>
+			
+			<p><strong>Properties</strong>:
+			
+			 | <a href="#prop_answer">answer</a>
+			
+			 | <a href="#prop_badge">badge</a>
+			
+			 | <a href="#prop_certificate">certificate</a>
+			
+			 | <a href="#prop_embeddableVersion">embeddableVersion</a>
+			
+			 | <a href="#prop_jurisdiction">jurisdiction</a>
+			
+			 | <a href="#prop_question">question</a>
+			
+			</p>				
+		</div>
+		
+		<div id="terms">
+			<h2>Ontology Terms</h2>
+		</div>
+		
+		<div id="classes">
+			<h3>Classes</h3>
+			
+	   			   			
+	   			<div typeof="owl:Class" about="http://schema.theodi.org/certificate#Answer" class="term" id="class_Answer">	   					   			
+	   				<h4>Class: Answer</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+		   				<table class="table">
+		   				<tr><td>Label</td><td><span property="rdfs:label">Answer</span></td></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#Answer</code></td></tr>
+		   				
+		   					   				
+		   				</table>	   		
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+			   				<p property="rdfs:comment">An answer provided during the certification process</p>
+			   				
+						</div>			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  			   			
+	   			<div typeof="owl:Class" about="http://schema.theodi.org/certificate#Certificate" class="term" id="class_Certificate">	   					   			
+	   				<h4>Class: Certificate</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+		   				<table class="table">
+		   				<tr><td>Label</td><td><span property="rdfs:label">Certificate</span></td></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#Certificate</code></td></tr>
+		   				
+		   				
+							<tr>
+								<td>Sub-Classes</td>
+								<td>
+									
+										<a href="#class_RawCertificate">RawCertificate</a>
+									
+										<a href="#class_PilotCertificate">PilotCertificate</a>
+									
+										<a href="#class_StandardCertificate">StandardCertificate</a>
+									
+										<a href="#class_ExpertCertificate">ExpertCertificate</a>
+									
+								</td>
+							</tr>
+		   					   				
+		   				</table>	   		
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+			   				<p property="rdfs:comment">An Open Data Certificate</p>
+			   				
+						</div>			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  			   			
+	   			<div typeof="owl:Class" about="http://schema.theodi.org/certificate#ExpertCertificate" class="term" id="class_ExpertCertificate">	   					   			
+	   				<h4>Class: ExpertCertificate</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+		   				<table class="table">
+		   				<tr><td>Label</td><td><span property="rdfs:label">Expert Certificate</span></td></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#ExpertCertificate</code></td></tr>
+		   				
+		   					   				
+		   				</table>	   		
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+			   				<p property="rdfs:comment">Expert Level Open Data Certificate</p>
+			   				
+						</div>			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  			   			
+	   			<div typeof="owl:Class" about="http://schema.theodi.org/certificate#PilotCertificate" class="term" id="class_PilotCertificate">	   					   			
+	   				<h4>Class: PilotCertificate</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+		   				<table class="table">
+		   				<tr><td>Label</td><td><span property="rdfs:label">Pilot Certificate</span></td></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#PilotCertificate</code></td></tr>
+		   				
+		   					   				
+		   				</table>	   		
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+			   				<p property="rdfs:comment">Pilot Level Open Data Certificate</p>
+			   				
+						</div>			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  			   			
+	   			<div typeof="owl:Class" about="http://schema.theodi.org/certificate#Question" class="term" id="class_Question">	   					   			
+	   				<h4>Class: Question</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+		   				<table class="table">
+		   				<tr><td>Label</td><td><span property="rdfs:label">Question</span></td></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#Question</code></td></tr>
+		   				
+		   					   				
+		   				</table>	   		
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+			   				<p property="rdfs:comment">A question asked during the open data certification process</p>
+			   				
+						</div>			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  			   			
+	   			<div typeof="owl:Class" about="http://schema.theodi.org/certificate#RawCertificate" class="term" id="class_RawCertificate">	   					   			
+	   				<h4>Class: RawCertificate</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+		   				<table class="table">
+		   				<tr><td>Label</td><td><span property="rdfs:label">Raw Certificate</span></td></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#RawCertificate</code></td></tr>
+		   				
+		   					   				
+		   				</table>	   		
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+			   				<p property="rdfs:comment">Raw Level Open Data Certificate</p>
+			   				
+						</div>			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  			   			
+	   			<div typeof="owl:Class" about="http://schema.theodi.org/certificate#StandardCertificate" class="term" id="class_StandardCertificate">	   					   			
+	   				<h4>Class: StandardCertificate</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+		   				<table class="table">
+		   				<tr><td>Label</td><td><span property="rdfs:label">Standard Certificate</span></td></tr>
+		   				<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#StandardCertificate</code></td></tr>
+		   				
+		   					   				
+		   				</table>	   		
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+			   				<p property="rdfs:comment">Standard Level Open Data Certificate</p>
+			   				
+						</div>			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  				
+		
+		</div>
+		
+		<div id="properties">
+			<h3>Object Properties</h3>
+	
+	   		
+	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/certificate#answer" class="term" id="prop_answer">
+	   				<h4>Property: answer</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td><span property="rdfs:label">answer</span></td></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#answer</code></td></tr>	   					
+				   				
+				   						   				
+				   				
+				   					<tr><td>Range</td>
+				   					<td>
+				   					
+				   						   
+				   						       <a href="#class_Answer">
+				   						       <span property="rdfs:domain" resource="http://schema.theodi.org/certificate#Answer">Answer</a>
+				   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   				
+				   				
+				   					<tr><td>Domain</td>
+				   					<td>
+				   					
+                                           
+                                               <a href="#class_Certificate">
+                                               <span property="rdfs:domain" resource="http://schema.theodi.org/certificate#Certificate">Certificate</a>
+                                           		   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p property="rdfs:comment">associates a certificate with an answer provided during the certification process</p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  		
+	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/certificate#badge" class="term" id="prop_badge">
+	   				<h4>Property: badge</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td><span property="rdfs:label">badge</span></td></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#badge</code></td></tr>	   					
+				   				
+				   						   				
+				   				
+				   					<tr><td>Range</td>
+				   					<td>
+				   					
+				   						   
+				   						       <a href="http://xmlns.com/foaf/0.1/Image"><span property="rdfs:range" resource="http://xmlns.com/foaf/0.1/Image">http://xmlns.com/foaf/0.1/Image</span></a>
+				   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   				
+				   				
+				   					<tr><td>Domain</td>
+				   					<td>
+				   					
+                                           
+                                               <a href="#class_Certificate">
+                                               <span property="rdfs:domain" resource="http://schema.theodi.org/certificate#Certificate">Certificate</a>
+                                           		   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p property="rdfs:comment">link to the image used as a badge for this certificate</p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  		
+	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/certificate#certificate" class="term" id="prop_certificate">
+	   				<h4>Property: certificate</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td><span property="rdfs:label">certificate</span></td></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#certificate</code></td></tr>	   					
+				   				
+				   						   				
+				   				
+				   					<tr><td>Range</td>
+				   					<td>
+				   					
+				   						   
+				   						       <a href="#class_Certificate">
+				   						       <span property="rdfs:domain" resource="http://schema.theodi.org/certificate#Certificate">Certificate</a>
+				   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   				
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p property="rdfs:comment">associates a dataset with an Open Data certificate</p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  		
+	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/certificate#embeddableVersion" class="term" id="prop_embeddableVersion">
+	   				<h4>Property: embeddableVersion</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td><span property="rdfs:label">embeddable version</span></td></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#embeddableVersion</code></td></tr>	   					
+				   				
+				   						   				
+				   				
+				   					<tr><td>Range</td>
+				   					<td>
+				   					
+				   						   
+				   						       <a href="http://xmlns.com/foaf/0.1/Document"><span property="rdfs:range" resource="http://xmlns.com/foaf/0.1/Document">http://xmlns.com/foaf/0.1/Document</span></a>
+				   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   				
+				   				
+				   					<tr><td>Domain</td>
+				   					<td>
+				   					
+                                           
+                                               <a href="#class_Certificate">
+                                               <span property="rdfs:domain" resource="http://schema.theodi.org/certificate#Certificate">Certificate</a>
+                                           		   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p property="rdfs:comment">link to a web page that provides the embeddable version of a certificate</p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  		
+	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/certificate#jurisdiction" class="term" id="prop_jurisdiction">
+	   				<h4>Property: jurisdiction</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td><span property="rdfs:label">jurisdiction</span></td></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#jurisdiction</code></td></tr>	   					
+				   				
+				   						   				
+				   				
+				   				
+				   					<tr><td>Domain</td>
+				   					<td>
+				   					
+                                           
+                                               <a href="#class_Certificate">
+                                               <span property="rdfs:domain" resource="http://schema.theodi.org/certificate#Certificate">Certificate</a>
+                                           		   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p property="rdfs:comment">identifies the jurisdiction that was selected during the certification process</p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  		
+	   			<div typeof="owl:ObjectProperty" about="http://schema.theodi.org/certificate#question" class="term" id="prop_question">
+	   				<h4>Property: question</h4>
+	   				<div class="row">
+	   					<div class="span2">
+	   					<h5>Overview</h5>
+	   					</div>
+	   					<div class="span10">
+			   				
+			   				<table class="table">
+			   					<tr><td>Label</td><td><span property="rdfs:label">question</span></td></tr>
+			   					<tr><td>URI</td><td><code>http://schema.theodi.org/certificate#question</code></td></tr>	   					
+				   				
+				   						   				
+				   				
+				   					<tr><td>Range</td>
+				   					<td>
+				   					
+				   						   
+				   						       <a href="#class_Question">
+				   						       <span property="rdfs:domain" resource="http://schema.theodi.org/certificate#Question">Question</a>
+				   						   
+				   							   				
+				   					</td>
+				   					</tr>
+				   				
+				   						   				
+			   				</table>	   				
+		   				</div>		   				
+					</div>		   	
+					<div class="row">
+						<div class="offset2 span10">
+		   				
+			   				<p property="rdfs:comment">associates an answer with its question</p>
+			   				
+	   				</div>
+	   			</div>
+	   			<div class="row">
+	   				<div class="offset10">
+	   					<a href="#overview">Back to Overview</a>
+					</div>	   					
+	   			</div>
+	   			<hr>
+	  				
+		
+					
+			<h3>Datatype Properties</h3>
+	
+	   				
+				
+		</div>
+	
+	</div>
+
+	<script src="jquery.js"></script> 		
+	<script src="bootstrap.min.js"></script>
+	
+  </body>	
+</html>

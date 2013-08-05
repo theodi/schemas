@@ -1,0 +1,88 @@
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix cert: <http://schema.theodi.org/certificate#> .
+
+# Need to add jurisdictions to URI design
+@prefix jurisdiction: <https://certificates.theodi.org/jurisdictions/> .
+
+<https://certificates.theodi.org/surveys/categories/>
+   a skos:ConceptScheme;
+   dct:title "Categories of questions in Open Data Certificates".
+
+<https://certificates.theodi.org/surveys/categories/general>
+   a skos:Concept;
+   skos:prefLabel "General Information";
+   skos:inScheme <https://certificates.theodi.org/surveys/categories/>.
+
+<https://certificates.theodi.org/surveys/questions/123>
+    # Here we are only providing the text for the question and a category, we are not
+    # trying to describe all of the potential answers to a question.
+    #
+    # Not sure we have a requirement to make the surveys themselves machine-readable (they're not
+    # accessible anonymously currently
+    #
+    # If we need to allow that then we would also need to describe for:
+    #  * single, multiple choice questions, with note on whether they are open ended ("Other...")
+    #  * list of potential selections for multiple choice questions
+    #  * types of answer (literal/URI)
+    #
+    a cert:Question;  
+    rdfs:label "Where is the data published?";
+    dct:subject <https://certificates.theodi.org/surveys/categories/general>.
+
+<https://certificates.theodi.org/datasets/os-linked-data>
+    a dcat:Dataset;
+    # Note: some questions in the certificate can be used to directly infer properties of the dataset
+    #
+    # All of the important elements, e.g. title, homepage, description, rights statement are covered
+    # by questions that are required for all levels.
+    #
+    # "What's this data called?" -> dct:title
+    # "Where is it described?" -> foaf:homepage?
+    # "Who publishes this data?" -> dct:publisher [ a foaf:Organization; foaf:name "" ]
+    # "Under which license can people reuse this data?" -> [ a odrs:RightsStatement; odrs:dataLicence <> ]
+    # "Under which license can people reuse this content?" -> [ a odrs:RightsStatement; odrs:contentLicence <> ]
+    # "Where do you describe copyright and database rights?" -> ideally the URI for the RightsStatement resource
+
+    dct:title "Ordnance Survey Linked Data";
+    cert:certificate <https://certificates.theodi.org/datasets/os-linked-data/certificates/12102>.
+
+<https://certificates.theodi.org/datasets/os-linked-data/certificates/12102> 
+    rdfs:label "Open Data Certificate for Dataset X"; 
+
+    # model different certificates as classes, rather than categories
+    a cert:Certificate, cert:StandardCertificate;
+
+    # could expose created/modified too, although at present users only see publication dates
+    dct:published "2012-07-29"^^xsd:date;
+
+    cert:jurisdiction jurisdiction:gb;
+    cert:badge <https://certificates.theodi.org/datasets/os-linked-data/certificates/12102/badge>;
+    cert:embeddable <https://certificates.theodi.org/datasets/os-linked-data/certificates/12102/embed>;
+ 
+    # A certificate is a list of answers to questions in the survey.
+    # Each answer should reference its question, its category and the label is it displayed
+    # under on the certificate page.
+    #
+    # Responses are either literals or URIs, depending on the question. The simplest case is to have
+    # a single property for each. 
+    #
+    # This level of detail provides enough to reconstruct the certificate page
+    cert:answer [
+        a cert:Answer;
+        cert:question <https://certificates.theodi.org/surveys/questions/123>;
+        rdfs:label "The data is published on ";
+        #could be a URI or a literal
+        cert:response <http://data.ordnancesurvey.co.uk/>.
+    ]
+    .
+

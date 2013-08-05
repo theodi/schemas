@@ -1,0 +1,138 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+
+@prefix cert: <http://schema.theodi.org/certificate#> .
+
+############################################################################
+# General description of the ontology
+############################################################################
+
+<http://schema.theodi.org/certificate>
+    a owl:Ontology;
+    owl:versionInfo "0.1";
+    dct:title "Open Data Certificate Vocabulary"@en;
+    rdfs:label "Open Data Certificate Vocabulary";
+    rdfs:comment """A vocabulary for publishing machine-readable metadata about Open Data Certificates""";
+    dct:created "2013-08-05"^^xsd:date;
+    dct:modified "2013-08-05"^^xsd:date;
+    foaf:maker <http://www.ldodds.com#me>.
+
+<http://www.ldodds.com#me> a foaf:Person ;
+    foaf:name "Leigh Dodds" .
+
+############################################################################
+# Classes
+############################################################################
+
+cert:Certificate
+    a owl:Class;    
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "Certificate"@en;
+    rdfs:comment """An Open Data Certificate"""@en.
+
+cert:RawCertificate
+    a owl:Class;    
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "Raw Certificate"@en;
+    rdfs:subClassOf cert:Certificate;
+    rdfs:comment """Raw Level Open Data Certificate"""@en.
+
+cert:PilotCertificate
+    a owl:Class;    
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "Pilot Certificate"@en;
+    rdfs:subClassOf cert:Certificate;
+    rdfs:comment """Pilot Level Open Data Certificate"""@en.
+
+cert:StandardCertificate
+    a owl:Class;    
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "Standard Certificate"@en;
+    rdfs:subClassOf cert:Certificate;
+    rdfs:comment """Standard Level Open Data Certificate"""@en.
+
+cert:ExpertCertificate
+    a owl:Class;    
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "Expert Certificate"@en;
+    rdfs:subClassOf cert:Certificate;
+    rdfs:comment """Expert Level Open Data Certificate"""@en.
+
+cert:Question
+    a owl:Class;    
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "Question"@en;
+    rdfs:comment """A question asked during the open data certification process"""@en.
+
+cert:Answer
+    a owl:Class;    
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "Answer"@en;
+    rdfs:comment """An answer provided during the certification process"""@en.
+
+############################################################################
+# Object Properties
+############################################################################
+cert:certificate
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "certificate"@en;
+    rdfs:comment """associates a dataset with an Open Data certificate"""@en;
+    rdfs:range cert:Certificate.
+
+cert:jurisdiction
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "jurisdiction"@en;
+    rdfs:comment """identifies the jurisdiction that was selected during the certification process"""@en;
+    rdfs:domain cert:Certificate.
+
+cert:badge
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "badge"@en;
+    rdfs:comment """link to the image used as a badge for this certificate"""@en;
+    rdfs:range foaf:Image;
+    rdfs:domain cert:Certificate.
+
+cert:embeddableVersion
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "embeddable version"@en;
+    rdfs:comment """link to a web page that provides the embeddable version of a certificate"""@en;
+    rdfs:range foaf:Document;
+    rdfs:domain cert:Certificate.
+
+cert:answer
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "answer"@en;
+    rdfs:comment """associates a certificate with an answer provided during the certification process"""@en;
+    rdfs:range cert:Answer;
+    rdfs:domain cert:Certificate.
+
+cert:question
+    a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "question"@en;
+    rdfs:comment """associates an answer with its question"""@en;
+    rdfs:range cert:Question.
+
+cert:response
+    a rdf:Property;
+    rdfs:isDefinedBy <http://schema.theodi.org/certificate>;
+    rdfs:label "response"@en;
+    rdfs:comment """a response provided when answering a specific question"""@en;
+    rdfs:domain cert:Answer.
+
+############################################################################
+# Datatype Properties
+############################################################################
+
+
